@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jagrosh.jmusicbot.commands.admin;
+package com.jagrosh.jmusicbot.commands.owner;
 
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jmusicbot.Bot;
-import com.jagrosh.jmusicbot.commands.AdminCommand;
+import com.jagrosh.jmusicbot.commands.OwnerCommand;
 import com.jagrosh.jmusicbot.settings.Settings;
 
 /**
  *
  * @author John Grosh (john.a.grosh@gmail.com)
  */
-public class SkipratioCmd extends AdminCommand
+public class SkipratioCmd extends OwnerCommand
 {
     public SkipratioCmd(Bot bot)
     {

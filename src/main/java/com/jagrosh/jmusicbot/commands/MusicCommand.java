@@ -15,7 +15,7 @@
  */
 package com.jagrosh.jmusicbot.commands;
 
-import com.jagrosh.jdautilities.command.Command;
+// import com.jagrosh.jmusicbot.commands.OwnerCommand; 
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jmusicbot.Bot;
 import com.jagrosh.jmusicbot.settings.Settings;
@@ -29,7 +29,7 @@ import net.dv8tion.jda.api.exceptions.PermissionException;
  *
  * @author John Grosh <john.a.grosh@gmail.com>
  */
-public abstract class MusicCommand extends Command 
+public abstract class MusicCommand extends OwnerCommand 
 {
     protected final Bot bot;
     protected boolean bePlaying;

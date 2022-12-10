@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jagrosh.jmusicbot.commands.admin;
+package com.jagrosh.jmusicbot.commands.owner;
 
 import java.util.List;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.commons.utils.FinderUtil;
 import com.jagrosh.jmusicbot.Bot;
-import com.jagrosh.jmusicbot.commands.AdminCommand;
+import com.jagrosh.jmusicbot.commands.OwnerCommand;
 import com.jagrosh.jmusicbot.settings.Settings;
 import com.jagrosh.jmusicbot.utils.FormatUtil;
 import net.dv8tion.jda.api.entities.VoiceChannel;
@@ -28,7 +28,7 @@ import net.dv8tion.jda.api.entities.VoiceChannel;
  *
  * @author John Grosh <john.a.grosh@gmail.com>
  */
-public class SetvcCmd extends AdminCommand 
+public class SetvcCmd extends OwnerCommand 
 {
     public SetvcCmd(Bot bot)
     {

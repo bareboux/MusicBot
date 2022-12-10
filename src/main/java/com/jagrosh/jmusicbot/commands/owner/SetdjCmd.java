@@ -13,28 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jagrosh.jmusicbot.commands.admin;
+package com.jagrosh.jmusicbot.commands.owner;
 
 import java.util.List;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.commons.utils.FinderUtil;
 import com.jagrosh.jmusicbot.Bot;
-import com.jagrosh.jmusicbot.commands.AdminCommand;
+import com.jagrosh.jmusicbot.commands.OwnerCommand;
 import com.jagrosh.jmusicbot.settings.Settings;
 import com.jagrosh.jmusicbot.utils.FormatUtil;
-import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.Role;
 
 /**
  *
  * @author John Grosh <john.a.grosh@gmail.com>
  */
-public class SettcCmd extends AdminCommand 
+public class SetdjCmd extends OwnerCommand
 {
-    public SettcCmd(Bot bot)
+    public SetdjCmd(Bot bot)
     {
-        this.name = "settc";
-        this.help = "sets the text channel for music commands";
-        this.arguments = "<channel|NONE>";
+        this.name = "setdj";
+        this.help = "sets the DJ role for certain music commands";
+        this.arguments = "<rolename|NONE>";
         this.aliases = bot.getConfig().getAliases(this.name);
     }
     
@@ -43,26 +43,26 @@ public class SettcCmd extends AdminCommand
     {
         if(event.getArgs().isEmpty())
         {
-            event.reply(event.getClient().getError()+" Please include a text channel or NONE");
+            event.reply(event.getClient().getError()+" Please include a role name or NONE");
             return;
         }
         Settings s = event.getClient().getSettingsFor(event.getGuild());
         if(event.getArgs().equalsIgnoreCase("none"))
         {
-            s.setTextChannel(null);
-            event.reply(event.getClient().getSuccess()+" Music commands can now be used in any channel");
+            s.setDJRole(null);
+            event.reply(event.getClient().getSuccess()+" DJ role cleared; Only Admins can use the DJ commands.");
         }
         else
         {
-            List<TextChannel> list = FinderUtil.findTextChannels(event.getArgs(), event.getGuild());
+            List<Role> list = FinderUtil.findRoles(event.getArgs(), event.getGuild());
             if(list.isEmpty())
-                event.reply(event.getClient().getWarning()+" No Text Channels found matching \""+event.getArgs()+"\"");
+                event.reply(event.getClient().getWarning()+" No Roles found matching \""+event.getArgs()+"\"");
             else if (list.size()>1)
-                event.reply(event.getClient().getWarning()+FormatUtil.listOfTChannels(list, event.getArgs()));
+                event.reply(event.getClient().getWarning()+FormatUtil.listOfRoles(list, event.getArgs()));
             else
             {
-                s.setTextChannel(list.get(0));
-                event.reply(event.getClient().getSuccess()+" Music commands can now only be used in <#"+list.get(0).getId()+">");
+                s.setDJRole(list.get(0));
+                event.reply(event.getClient().getSuccess()+" DJ commands can now be used by users with the **"+list.get(0).getName()+"** role.");
             }
         }
     }

@@ -18,7 +18,7 @@ package com.jagrosh.jmusicbot;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.examples.command.*;
-import com.jagrosh.jmusicbot.commands.admin.*;
+// import com.jagrosh.jmusicbot.commands.admin.*;
 import com.jagrosh.jmusicbot.commands.dj.*;
 import com.jagrosh.jmusicbot.commands.general.*;
 import com.jagrosh.jmusicbot.commands.music.*;
@@ -71,7 +71,7 @@ public class JMusicBot
         Prompt prompt = new Prompt("JMusicBot");
         
         // startup checks
-        OtherUtil.checkVersion(prompt);
+        // OtherUtil.checkVersion(prompt);
         OtherUtil.checkJavaVersion(prompt);
         
         // load config
